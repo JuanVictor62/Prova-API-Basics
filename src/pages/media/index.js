@@ -3,19 +3,19 @@ import { useState } from 'react'
 import axios from 'axios'
 
 export default function Index() {
-    const [nota1, setNota1] = useState(0);
-    const [nota2, setNota2] = useState(0);
-    const [nota3, setNota3] = useState(0);
-    const [resposta, setResposta] = useState(0);
+    const [notaUm, setNotaUm] = useState(0);
+    const [notaDois, setNotaDois] = useState(0);
+    const [notaTres, setNotaTres] = useState(0);
+    const [x, setResposta] = useState(0);
 
 
     async function Media() {
         const resp = await axios.post('http://localhost:5000/media', {
-            n1: nota1,
-            n2: nota2,
-            n3: nota3 
+            n1: notaUm,
+            n2: notaDois,
+            n3: notaTres 
         })
-        setResposta(resp.data.resposta);
+        setResposta(resp.data.x);
     }
     return(
         <main>
@@ -23,19 +23,19 @@ export default function Index() {
                 <h1>Média</h1>
             </div>
             <div>
-                nota 1 <input type="text" value={nota1} onChange={e => setNota1(Number(e.target.value))} />
+                nota 1 <input type="text" value={notaUm} onChange={e => setNotaUm(Number(e.target.value))} />
             </div>
             <div>
-                nota 2 <input type="text" value={nota2} onChange={e => setNota2(Number(e.target.value))} />
+                nota 2 <input type="text" value={notaDois} onChange={e => setNotaDois(Number(e.target.value))} />
             </div>
             <div>
-                nota 3 <input type="text" value={nota3} onChange={e => setNota3(Number(e.target.value))} />
+                nota 3 <input type="text" value={notaTres} onChange={e => setNotaTres(Number(e.target.value))} />
             </div>
             <div>
                 <button onClick={Media}>Consultar</button>
             </div>
             <div>
-                a media do aluno é: {resposta}
+                a media do aluno é: {x}
             </div>
         </main>
     )
