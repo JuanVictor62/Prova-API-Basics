@@ -7,12 +7,11 @@ export default function Index() {
     const [numero2, setNumero2] = useState(0);
     const [resposta, setResposta] = useState(0);
 
-    function Calcular() {
-        const resp = axios.get('http://localhost:5000/dia2/somar/' + numero1 + numero2)
+    async function Calcular() {
+        const resp = await axios.get(`http://localhost:5000/somarGet?a=${numero1}&b=${numero2}`)
         setResposta(resp.data.x)
         } 
     
-
     return(
         <main>
             <div>

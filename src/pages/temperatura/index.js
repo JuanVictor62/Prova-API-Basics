@@ -29,7 +29,7 @@ export default function Index() {
                     <button className='btn-style' onClick={febre}>calcular</button>
                 </div>
                 <div className='resultado'>
-                    febre: {x}
+                    febre: {x} 
                 </div>
             </div>
 
